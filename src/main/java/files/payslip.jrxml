@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.3.final using JasperReports Library version 6.21.3-4a3078d20785ebe464f18037d738d12fc98c13cf  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="payslip" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13acf49e-4913-4d1b-bccc-113817ad15d1">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL_phpMyAdmin"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM payslip]]>
+	</queryString>
+	<field name="PayslipID" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="PayslipID"/>
+		<property name="com.jaspersoft.studio.field.label" value="PayslipID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payslip"/>
+	</field>
+	<field name="EmployeeNum" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="EmployeeNum"/>
+		<property name="com.jaspersoft.studio.field.label" value="EmployeeNum"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payslip"/>
+	</field>
+	<field name="LastName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="LastName"/>
+		<property name="com.jaspersoft.studio.field.label" value="LastName"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payslip"/>
+	</field>
+	<field name="FirstName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="FirstName"/>
+		<property name="com.jaspersoft.studio.field.label" value="FirstName"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payslip"/>
+	</field>
+	<field name="Position" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Position"/>
+		<property name="com.jaspersoft.studio.field.label" value="Position"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payslip"/>
+	</field>
+	<field name="Department" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Department"/>
+		<property name="com.jaspersoft.studio.field.label" value="Department"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payslip"/>
+	</field>
+	<field name="Month" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="Month"/>
+		<property name="com.jaspersoft.studio.field.label" value="Month"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payslip"/>
+	</field>
+	<field name="Year" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="Year"/>
+		<property name="com.jaspersoft.studio.field.label" value="Year"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payslip"/>
+	</field>
+	<field name="MonthlyRate" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="MonthlyRate"/>
+		<property name="com.jaspersoft.studio.field.label" value="MonthlyRate"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payslip"/>
+	</field>
+	<field name="HourlyRate" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="HourlyRate"/>
+		<property name="com.jaspersoft.studio.field.label" value="HourlyRate"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payslip"/>
+	</field>
+	<field name="TotalWorkedHrs" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="TotalWorkedHrs"/>
+		<property name="com.jaspersoft.studio.field.label" value="TotalWorkedHrs"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payslip"/>
+	</field>
+	<field name="OTHrs" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="OTHrs"/>
+		<property name="com.jaspersoft.studio.field.label" value="OTHrs"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payslip"/>
+	</field>
+	<field name="LeaveCreditsUsedinHours" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="LeaveCreditsUsedinHours"/>
+		<property name="com.jaspersoft.studio.field.label" value="LeaveCreditsUsedinHours"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payslip"/>
+	</field>
+	<field name="RiceSubsidy" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="RiceSubsidy"/>
+		<property name="com.jaspersoft.studio.field.label" value="RiceSubsidy"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payslip"/>
+	</field>
+	<field name="PhoneAllowance" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="PhoneAllowance"/>
+		<property name="com.jaspersoft.studio.field.label" value="PhoneAllowance"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payslip"/>
+	</field>
+	<field name="ClothingAllowance" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="ClothingAllowance"/>
+		<property name="com.jaspersoft.studio.field.label" value="ClothingAllowance"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payslip"/>
+	</field>
+	<field name="SSSdeduction" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="SSSdeduction"/>
+		<property name="com.jaspersoft.studio.field.label" value="SSSdeduction"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payslip"/>
+	</field>
+	<field name="PagibigDeduction" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="PagibigDeduction"/>
+		<property name="com.jaspersoft.studio.field.label" value="PagibigDeduction"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payslip"/>
+	</field>
+	<field name="PhilhealthDeduction" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="PhilhealthDeduction"/>
+		<property name="com.jaspersoft.studio.field.label" value="PhilhealthDeduction"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payslip"/>
+	</field>
+	<field name="WithholdingTax" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="WithholdingTax"/>
+		<property name="com.jaspersoft.studio.field.label" value="WithholdingTax"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payslip"/>
+	</field>
+	<field name="GrossSalary" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="GrossSalary"/>
+		<property name="com.jaspersoft.studio.field.label" value="GrossSalary"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payslip"/>
+	</field>
+	<field name="TotalAllowance" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="TotalAllowance"/>
+		<property name="com.jaspersoft.studio.field.label" value="TotalAllowance"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payslip"/>
+	</field>
+	<field name="TotalContribution" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="TotalContribution"/>
+		<property name="com.jaspersoft.studio.field.label" value="TotalContribution"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payslip"/>
+	</field>
+	<field name="NetMonthlySalary" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="NetMonthlySalary"/>
+		<property name="com.jaspersoft.studio.field.label" value="NetMonthlySalary"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="payslip"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="795" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-3" y="54" width="555" height="32" forecolor="#000000" backcolor="#8C2F2B" uuid="e3c14156-5b51-4201-918b-97fdc012e5d4"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="400" y="10" width="144" height="16" forecolor="#FFFFFF" uuid="5c3301e7-a737-4c59-8a2f-a6c79fd1adb8"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<image>
+					<reportElement x="1" y="-70" width="124" height="103" uuid="a8a3cfc6-4931-45df-8ea3-abd001952f16"/>
+					<imageExpression><![CDATA["https://imgur.com/BROvTEN.png"]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement x="7" y="5" width="178" height="22" forecolor="#FFFFFF" uuid="3f8c1479-b91a-4e13-8c6d-d88c55e9b723"/>
+					<textElement>
+						<font fontName="Helvetica Neue" size="16" isBold="true"/>
+					</textElement>
+					<text><![CDATA[EMPLOYEE PAYSLIP]]></text>
+				</staticText>
+			</frame>
+			<staticText>
+				<reportElement x="110" y="-10" width="180" height="30" forecolor="#292D45" uuid="a9288dd0-5a50-4350-b17c-46cc653ca002"/>
+				<textElement>
+					<font fontName="Helvetica Neue" size="22" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[MotorPH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="20" width="380" height="50" forecolor="#262B3B" uuid="7cf973dc-36c4-478e-a837-d8a5baeca675"/>
+				<textElement>
+					<font fontName="Helvetica Neue" size="8"/>
+				</textElement>
+				<text><![CDATA[7 Jupiter Avenue cor. F. Sandoval Jr., Bagong Nayon, Quezon City
+(028) 911-5071 / (028) 911-5072 / (028) 911-5073
+corporate@motorph.com]]></text>
+			</staticText>
+			<frame>
+				<reportElement mode="Opaque" x="-3" y="86" width="555" height="703" forecolor="#000000" backcolor="#FFFFFF" uuid="b50221b5-8254-440b-8c6f-1f0b138c9259">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<rectangle>
+					<reportElement positionType="Float" x="-1" y="660" width="555" height="20" forecolor="#FAEEED" backcolor="#FAEEED" uuid="2440d390-7016-4386-959a-442aa44407d8"/>
+				</rectangle>
+				<rectangle>
+					<reportElement positionType="Float" x="-1" y="530" width="556" height="20" forecolor="#FAEEED" backcolor="#FAEEED" uuid="c888acfe-23a4-41dc-aa81-ba12253b7267"/>
+				</rectangle>
+				<rectangle>
+					<reportElement positionType="Float" x="-1" y="570" width="555" height="20" forecolor="#8C2F2B" backcolor="#8C2F2B" uuid="808b83fc-faaa-4412-879f-121f3a692f99"/>
+				</rectangle>
+				<rectangle>
+					<reportElement positionType="Float" x="-1" y="420" width="555" height="20" forecolor="#8C2F2B" backcolor="#8C2F2B" uuid="2f243e5c-1c60-4b7f-89fa-14093d773ffe"/>
+				</rectangle>
+				<rectangle>
+					<reportElement positionType="Float" x="-1" y="290" width="555" height="20" forecolor="#8C2F2B" backcolor="#8C2F2B" uuid="7e8a614c-3ded-47d2-a7e2-ac1f870dbcfa"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="0" y="90" width="127" height="26" backcolor="#31384A" uuid="55b3e16c-b163-4813-b9c4-5f9ba2209e5b"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="0" y="59" width="127" height="26" backcolor="#31384A" uuid="d55849ed-3623-4be5-9fda-3e75fec443a3"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="0" y="29" width="127" height="26" backcolor="#31384A" uuid="f7d55e2c-6cd3-4e5c-a82a-e873211d284e"/>
+				</rectangle>
+				<rectangle>
+					<reportElement positionType="Float" x="-1" y="250" width="556" height="20" forecolor="#FAEEED" backcolor="#FAEEED" uuid="d1387d42-1998-4af3-a0ec-b6c870c4e247"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="0" y="0" width="127" height="26" backcolor="#31384A" uuid="11efd5fa-2577-4082-8b5f-37d5e2626f5e"/>
+				</rectangle>
+				<rectangle>
+					<reportElement positionType="Float" x="0" y="120" width="555" height="20" forecolor="#8C2F2B" backcolor="#8C2F2B" uuid="7d0cc097-ce50-45e2-927e-c74a9dead5d9"/>
+				</rectangle>
+				<rectangle>
+					<reportElement positionType="Float" x="-1" y="380" width="556" height="20" forecolor="#FAEEED" backcolor="#FAEEED" uuid="bb092818-662a-4ce6-bd50-aec80c2b3a78"/>
+				</rectangle>
+				<frame>
+					<reportElement mode="Opaque" x="-1" y="685" width="556" height="24" forecolor="#D0B48E" backcolor="#162133" uuid="729c3539-f946-4d0e-a0a7-bda2815ea1b0"/>
+				</frame>
+				<staticText>
+					<reportElement style="Column header" x="7" y="661" width="163" height="18" forecolor="#000000" uuid="2203a41a-b61b-4460-bbed-6f54c604a88a">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9b0ea26e-3315-4923-9bf6-a85ff4a025f4"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[NET MONTHLY SALARY]]></text>
+				</staticText>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="380" y="661" width="175" height="18" uuid="4c6167a0-7c32-42b6-a92e-d51aad8b840e">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9b0ea26e-3315-4923-9bf6-a85ff4a025f4"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{NetMonthlySalary}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="380" y="620" width="164" height="18" uuid="692dc8a3-3ecf-43b8-a8be-7a49add5d679">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="164f8966-997c-47d8-a418-a5ce8720b573"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{TotalAllowance}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column header" x="7" y="620" width="131" height="18" forecolor="#000000" uuid="496cd1e4-0a4c-48ac-835d-cd1d951aacf5">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="164f8966-997c-47d8-a418-a5ce8720b573"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Benefits]]></text>
+				</staticText>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="380" y="640" width="164" height="18" uuid="23d807dd-d313-4c1b-807f-10349decda2e">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="731d7818-9dc9-4bc3-b804-7682500e8de1"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{TotalContribution}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column header" x="7" y="640" width="131" height="18" forecolor="#000000" uuid="fa15f4f5-4ca3-4ccf-9001-66ccfbaa4290">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="731d7818-9dc9-4bc3-b804-7682500e8de1"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Total Deductions]]></text>
+				</staticText>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="380" y="531" width="162" height="18" uuid="2ab4390b-f617-4e7e-9aeb-70fa542be59b">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="731d7818-9dc9-4bc3-b804-7682500e8de1"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{TotalContribution}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="380" y="600" width="164" height="18" uuid="1299e551-d4ed-4bf0-b74b-2eb188509084">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="52a7c2cb-a2dc-431b-a846-3603331a5240"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{GrossSalary}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="130" y="4" width="140" height="18" uuid="4800a896-cceb-4fcf-8f03-efe1d5436076">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="065a1d88-b154-472e-a97d-8df3a1502783"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{PayslipID}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="130" y="33" width="140" height="18" uuid="1020c8f1-4d52-4a5d-b06f-1fc74c09bd91">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d6002571-1bb9-490d-a5dc-c0292e0d32fe"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{EmployeeNum}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="279" y="63" width="132" height="18" uuid="a70ede83-2dd3-4462-85f6-ad938d274a39">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bbcc50e6-2db7-421f-803d-71a9eef54797"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{LastName}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="131" y="63" width="139" height="18" uuid="413d7b16-52c9-4e31-8356-40b05395e0c1">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6f705f66-e365-452b-9c95-6d7063f9e606"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{FirstName}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="130" y="94" width="140" height="18" uuid="1c84022b-75c9-4f7b-b2e3-4132553117fc">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7d2a505f-7ebd-4980-b064-d96a6dab9973"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Position}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="418" y="94" width="123" height="18" uuid="c3f8b3c1-10f1-43d5-bf4d-9d5749db74eb">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="84b6c087-e5df-495b-b3ec-71b631a898c1"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Department}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="418" y="4" width="122" height="18" uuid="2a8ba55b-a401-4812-8142-00f8ae5b3049">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cc694ed1-508a-4e5b-a394-860b8da8de06"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Month}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="418" y="33" width="123" height="18" uuid="7cde61d7-3ad2-4010-ac45-3305ee5dda6c">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="88fa0d9c-53ba-4eb8-aa2e-720f8af80efc"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Year}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="380" y="150" width="164" height="18" uuid="bc9745f4-f052-44d2-9e08-031f405f90b4">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a888599-813c-4b66-bbb1-4d6109b7b04f"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{MonthlyRate}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="380" y="170" width="164" height="18" uuid="44ea16f2-15e3-47d8-8032-6908454c19d2">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f49f62e7-4113-4b1e-9bc9-a0827feabe0d"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{HourlyRate}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="380" y="190" width="164" height="18" uuid="ac2c27b9-00c2-41f8-8729-f6681557ca7f">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="74732905-4398-44a2-bdde-71040983194f"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{TotalWorkedHrs}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="380" y="210" width="164" height="18" uuid="81b33f6d-3ed5-402a-b432-c147d95c2482">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0d66e612-5ceb-427d-9b16-42e614348794"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{OTHrs}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="380" y="230" width="164" height="18" uuid="943e628a-766d-404d-8245-09e87594f0a7">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="79eb3fc4-9d2e-421f-85bd-39e5d56ab1a3"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{LeaveCreditsUsedinHours}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="380" y="320" width="164" height="18" uuid="b6720d26-faf3-4c78-819c-990f706f8811">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b073c5b7-884e-42d0-a4fb-131112664fbb"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{RiceSubsidy}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="380" y="340" width="164" height="18" uuid="049a8cc3-083b-4546-a981-d628cf9c3f02">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8b2c2544-f28a-4836-926f-56ba0184df84"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{PhoneAllowance}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="380" y="360" width="164" height="18" uuid="643cbb6f-3225-4b28-8c15-ee5143a618fa">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0e38ae81-8018-49c8-be7b-cbfd3aeadbdd"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ClothingAllowance}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="380" y="450" width="162" height="18" uuid="68a139a3-0f3f-43cb-ae68-e012b4f11d6e">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="35a8656e-7e6e-4948-992a-2cbd8589a238"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{SSSdeduction}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="380" y="490" width="162" height="18" uuid="55b6a150-b3ba-4727-86a6-9bb6079143a6">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="caaf228e-a23a-4361-80ee-7c22dd331bb3"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{PagibigDeduction}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="380" y="470" width="162" height="18" uuid="e087b7c1-d732-4839-83b7-90f6458e69b4">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e163346e-baf7-4519-a6bd-2f73ac3d69fe"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{PhilhealthDeduction}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="380" y="510" width="162" height="18" uuid="68f97f21-c30f-4715-9f1d-30e2daa0a139">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7f3730fd-161d-4de6-a3dc-f404469acded"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{WithholdingTax}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="380" y="251" width="164" height="18" uuid="7285fb49-1e19-444d-a23a-e0721a2fd3b5">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="52a7c2cb-a2dc-431b-a846-3603331a5240"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{GrossSalary}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="7" y="8" width="90" height="17" forecolor="#FFFFFF" uuid="0b1ad058-3f47-4b61-b261-ed80af1245f0">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="065a1d88-b154-472e-a97d-8df3a1502783"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[PAYSLIP ID]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="280" y="0" width="130" height="26" backcolor="#31384A" uuid="b9e6e963-ecbe-4518-b10b-4a80b52d1d02"/>
+				</rectangle>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="7" y="65" width="120" height="22" forecolor="#FFFFFF" uuid="f60189eb-b8e6-490b-86d3-2d4f0176aa7e">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d6002571-1bb9-490d-a5dc-c0292e0d32fe"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[EMPLOYEE NAME]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="7" y="94" width="71" height="18" forecolor="#FFFFFF" uuid="fd9f9d4c-149c-42d1-8c7f-3c14d215a3b1">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7d2a505f-7ebd-4980-b064-d96a6dab9973"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[POSITION]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="280" y="90" width="132" height="26" backcolor="#31384A" uuid="2e77c01e-f21e-418e-9fe4-de866cc9b72f"/>
+				</rectangle>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="288" y="4" width="78" height="18" forecolor="#FFFFFF" uuid="46a30667-59be-46c1-9dd1-db19f296323e">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cc694ed1-508a-4e5b-a394-860b8da8de06"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[MONTH]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="288" y="95" width="114" height="16" forecolor="#FFFFFF" uuid="91c70448-b1e3-4f1e-8e09-86c6f27ec1c8">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="84b6c087-e5df-495b-b3ec-71b631a898c1"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[DEPARTMENT]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="280" y="29" width="130" height="26" backcolor="#31384A" uuid="e7b6fc57-ad2e-4572-8bca-38e973b135a1"/>
+				</rectangle>
+				<staticText>
+					<reportElement style="Column header" x="288" y="33" width="51" height="18" forecolor="#FFFFFF" uuid="436e44c1-d76a-40c6-8e66-6bcce2f26ad4">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="88fa0d9c-53ba-4eb8-aa2e-720f8af80efc"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[YEAR]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="7" y="120" width="100" height="30" forecolor="#FFFFFF" uuid="b9386ec6-0448-4e5d-82ca-200064fbf7c1"/>
+					<box topPadding="3"/>
+					<textElement>
+						<font fontName="Helvetica Neue" isBold="true"/>
+					</textElement>
+					<text><![CDATA[EARNINGS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="7" y="150" width="131" height="18" forecolor="#000000" uuid="44f3cabc-0dc3-46d0-8add-7fe7b90a9d32">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a888599-813c-4b66-bbb1-4d6109b7b04f"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Monthly Rate]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="7" y="170" width="131" height="18" forecolor="#000000" uuid="d837e91c-7242-493a-b119-ab96cbda3650">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f49f62e7-4113-4b1e-9bc9-a0827feabe0d"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Hourly Rate]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="7" y="190" width="131" height="18" forecolor="#000000" uuid="d5bc986d-63f5-4811-9175-a8900f0830ca">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="74732905-4398-44a2-bdde-71040983194f"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Total Worked Hours]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="7" y="210" width="131" height="18" forecolor="#000000" uuid="5d36cb07-3d93-4d25-ac5e-2e39e2af967d">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0d66e612-5ceb-427d-9b16-42e614348794"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Overtime Hours]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="7" y="230" width="185" height="18" forecolor="#000000" uuid="d8b02464-6e7e-43ca-9c0a-fbad304dd61b">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="79eb3fc4-9d2e-421f-85bd-39e5d56ab1a3"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Leave Credits Used in Hours]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="7" y="251" width="131" height="18" forecolor="#000000" uuid="f53710aa-2ed0-48fb-86c3-2e91c31cc20d">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="52a7c2cb-a2dc-431b-a846-3603331a5240"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[GROSS INCOME]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="7" y="290" width="100" height="30" forecolor="#FFFFFF" uuid="e64e7d7a-89d8-4e3c-8f23-bac031503624"/>
+					<box topPadding="3"/>
+					<textElement>
+						<font fontName="Helvetica Neue" isBold="true"/>
+					</textElement>
+					<text><![CDATA[BENEFITS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="7" y="320" width="130" height="18" forecolor="#000000" uuid="0cb07d59-eaf4-4e1e-a836-13a5dc7a435b">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b073c5b7-884e-42d0-a4fb-131112664fbb"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Rice Subsidy]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="7" y="340" width="130" height="18" forecolor="#000000" uuid="ef12b543-d80c-41ad-813c-e47724d76d74">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8b2c2544-f28a-4836-926f-56ba0184df84"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Phone Allowance]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="7" y="360" width="130" height="18" forecolor="#000000" uuid="a52333fc-9d23-4c4f-bbf5-63de074dcb4f">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0e38ae81-8018-49c8-be7b-cbfd3aeadbdd"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Clothing Allowance]]></text>
+				</staticText>
+				<textField textAdjust="StretchHeight">
+					<reportElement style="Detail" positionType="Float" x="380" y="381" width="164" height="18" uuid="5c144d9a-eae8-416a-8734-a2aa27a370f0">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="164f8966-997c-47d8-a418-a5ce8720b573"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{TotalAllowance}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column header" x="7" y="381" width="131" height="18" forecolor="#000000" uuid="3d2254c7-2fb4-4864-b185-cafba937be2d">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="164f8966-997c-47d8-a418-a5ce8720b573"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TOTAL ALLOWANCE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="7" y="450" width="131" height="18" forecolor="#000000" uuid="8f2db66c-893a-4588-ac1a-983523bd68bc">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="35a8656e-7e6e-4948-992a-2cbd8589a238"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Social Security System]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="7" y="470" width="131" height="18" forecolor="#000000" uuid="aec5837e-21db-4c45-901d-12696aa0357a">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e163346e-baf7-4519-a6bd-2f73ac3d69fe"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Philhealth]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="7" y="490" width="131" height="18" forecolor="#000000" uuid="5b12646d-4871-41d8-a31b-8d835ea9471d">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="caaf228e-a23a-4361-80ee-7c22dd331bb3"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Pag-ibig]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="7" y="510" width="130" height="18" forecolor="#000000" uuid="7066f008-e394-461e-afe6-14e8ddaff415">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7f3730fd-161d-4de6-a3dc-f404469acded"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Withholding Tax]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="7" y="531" width="131" height="18" forecolor="#000000" uuid="6ca77c4a-7234-42ef-a7c6-aed7d54fdae3">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="164f8966-997c-47d8-a418-a5ce8720b573"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TOTAL DEDUCTIONS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="7" y="600" width="131" height="18" forecolor="#000000" uuid="43407fde-b855-4bb9-95dc-0f8b8fc0078a">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="52a7c2cb-a2dc-431b-a846-3603331a5240"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Gross Income]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="7" y="420" width="100" height="30" forecolor="#FFFFFF" uuid="e4c2bc40-fc8d-49be-bd68-c392c147eb9d"/>
+					<box topPadding="3"/>
+					<textElement>
+						<font fontName="Helvetica Neue" isBold="true"/>
+					</textElement>
+					<text><![CDATA[DEDUCTIONS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="7" y="570" width="100" height="30" forecolor="#FFFFFF" uuid="9d15227d-8f05-492e-ac33-2919304a322e"/>
+					<box topPadding="3"/>
+					<textElement>
+						<font fontName="Helvetica Neue" isBold="true"/>
+					</textElement>
+					<text><![CDATA[SUMMARY]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="7" y="33" width="120" height="18" forecolor="#FFFFFF" uuid="1295fadd-9ab1-431a-856f-9e02022a7a40">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d6002571-1bb9-490d-a5dc-c0292e0d32fe"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="Helvetica Neue" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[EMPLOYEE ID]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="730" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
