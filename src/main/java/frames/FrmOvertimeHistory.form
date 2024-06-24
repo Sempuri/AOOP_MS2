@@ -118,10 +118,10 @@
                 <Column editable="false" title="Date of OT" type="java.lang.Object"/>
                 <Column editable="false" title="Time In" type="java.lang.Object"/>
                 <Column editable="false" title="Time Out" type="java.lang.Object"/>
-                <Column editable="false" title="Tot Worked Hrs" type="java.lang.Object"/>
+                <Column editable="false" title="OT Hours" type="java.lang.Object"/>
                 <Column editable="false" title="Status" type="java.lang.Object"/>
                 <Column editable="false" title="Approver" type="java.lang.Object"/>
-                <Column editable="false" title="Approved Date" type="java.lang.Object"/>
+                <Column editable="false" title="Date Responded" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

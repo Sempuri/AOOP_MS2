@@ -116,12 +116,43 @@ public class FrmRequestOvertime extends javax.swing.JFrame {
     
     //method for populating textfields and jDCchooser
     public void populateFields(String[] overtimeInfo) {
+        // Check if overtimeInfo has the expected length
+        if (overtimeInfo == null || overtimeInfo.length < 5) {
+            JOptionPane.showMessageDialog(this, "Invalid overtime information.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         txtEmployeeID.setText(overtimeInfo[0]);
         txtReqDate.setText(getLblDate().getText());
         txtDate.setText(overtimeInfo[1]);
         txtTimeIn.setText(overtimeInfo[2]);
         txtTimeOut.setText(overtimeInfo[3]);
-        txtTotalWorkedHours.setText(overtimeInfo[4]);  
+        
+        // Check if timeIn or timeOut is empty
+        if (overtimeInfo[2].isEmpty() || overtimeInfo[3].isEmpty()) {
+            txtTotalWorkedHours.setText("N/A"); 
+            return;
+        }
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss"); // 24-hour format with seconds
+        try {
+            Date timeIn = dateFormat.parse(overtimeInfo[2]);
+            Date timeOut = dateFormat.parse(overtimeInfo[3]);
+
+            long differenceInMilliseconds = timeOut.getTime() - timeIn.getTime();
+            double hoursWorked = (double) differenceInMilliseconds / (1000 * 60 * 60);
+
+            double overtimeHours = hoursWorked - 9.0;
+
+            if (overtimeHours < 0) {
+                overtimeHours = 0;
+            }
+
+            txtTotalWorkedHours.setText(String.format("%.2f", overtimeHours));
+        } catch (ParseException e) {
+            e.printStackTrace();
+            txtTotalWorkedHours.setText("Error calculating overtime");
+        }
     }
     
     //method for clearing textfields
@@ -139,8 +170,6 @@ public class FrmRequestOvertime extends javax.swing.JFrame {
     public JLabel getLblDate() {
         return lblDate;
     }
-    
-    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -378,6 +407,18 @@ public class FrmRequestOvertime extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Please calculate the total worked hours.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        
+        // Check if the total worked hours is 0
+        try {
+            double workedHours = Double.parseDouble(totalWorkedHrs);
+            if (workedHours == 0) {
+                JOptionPane.showMessageDialog(this, "There are no overtime hours.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Invalid total worked hours format.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
         // Check if an overtime request already exists for the specified date and employee ID
         if (overtimeRequestExists(employeeID, otDate)) {
@@ -418,8 +459,6 @@ public class FrmRequestOvertime extends javax.swing.JFrame {
         // Close the current frame
         this.dispose();
     }
-
-
 
 // Method to check if an overtime request already exists for the specified date and employee ID
 private boolean overtimeRequestExists(int employeeID, String otDate) {

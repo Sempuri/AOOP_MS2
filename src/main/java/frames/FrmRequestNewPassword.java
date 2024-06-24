@@ -200,7 +200,7 @@ public class FrmRequestNewPassword extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(586, 467));
         getContentPane().setLayout(null);
 
-        lblDate.setFont(new java.awt.Font("Thasadith", 1, 14)); // NOI18N
+        lblDate.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         lblDate.setForeground(new java.awt.Color(48, 40, 40));
         lblDate.setText("Date");
         getContentPane().add(lblDate);
@@ -379,6 +379,20 @@ public class FrmRequestNewPassword extends javax.swing.JFrame {
         }
 
         try (Connection conn = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD)) {
+            // Check if there's already a pending password request for this employee
+            String checkPendingSql = "SELECT * FROM password_request WHERE EmployeeNum = ? AND Status = ?";
+            try (PreparedStatement checkPendingStmt = conn.prepareStatement(checkPendingSql)) {
+                checkPendingStmt.setInt(1, Integer.parseInt(empID));
+                checkPendingStmt.setString(2, "Pending");
+                ResultSet pendingRs = checkPendingStmt.executeQuery();
+
+                if (pendingRs.next()) {
+                    JOptionPane.showMessageDialog(this, "You have already requested a password change. Please wait for the current request to be processed.",
+                            "Duplicate Request", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+            }
+            
             // Validate the Employee ID and Username
             String validateSql = "SELECT * FROM login WHERE EmployeeNum = ? AND Username = ?";
             try (PreparedStatement validateStmt = conn.prepareStatement(validateSql)) {

@@ -385,7 +385,7 @@ public void setCustomDateRendererForAllowance() {
         lblEid.setBounds(260, 50, 33, 18);
 
         btnDownloadMonthlyReport.setBackground(new java.awt.Color(255, 255, 255));
-        btnDownloadMonthlyReport.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        btnDownloadMonthlyReport.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         btnDownloadMonthlyReport.setForeground(new java.awt.Color(105, 86, 86));
         btnDownloadMonthlyReport.setText("Generate Monthly Payroll Report");
         btnDownloadMonthlyReport.addActionListener(new java.awt.event.ActionListener() {

@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -44,7 +45,7 @@ public class FrmEditEmployee extends javax.swing.JFrame {
     /**
      * Creates new form FrmEditEmployee
      */
-   public FrmEditEmployee(FrmHRpage hrPageRef) {
+    public FrmEditEmployee(FrmHRpage hrPageRef) {
         initComponents();
         setPreferredSize(new Dimension(1000, 670));
         
@@ -52,6 +53,21 @@ public class FrmEditEmployee extends javax.swing.JFrame {
         pack();  // Adjust size to the preferred size
         
         displayBgFromDatabase("FrmEditEmployee");
+        
+        // Get today's date
+        Calendar today = Calendar.getInstance();
+
+        // Calculate the minimum birth date (18 years ago)
+        Calendar minBirthDate = (Calendar) today.clone();
+        minBirthDate.add(Calendar.YEAR, -18);
+
+        // Calculate the maximum selectable date (100 years ago)
+        Calendar maxBirthDate = (Calendar) today.clone();
+        maxBirthDate.add(Calendar.YEAR, -18);
+        maxBirthDate.add(Calendar.YEAR, -100); // Assuming no one over 100 can register
+        
+        // Set min and max selectable dates for jDCBirthday
+        jDCBirthday.setSelectableDateRange(maxBirthDate.getTime(), minBirthDate.getTime());
     
         this.hrPageRef = hrPageRef;
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -99,38 +115,37 @@ public class FrmEditEmployee extends javax.swing.JFrame {
         this.dispose();
     }       
     
-// Method for populating textfields and combo box
-public void populateFields(String[] empInfo) {
-    txtEmployeeID.setText(empInfo[0]);
-    txtLastName.setText(empInfo[1]);
-    txtFirstName.setText(empInfo[2]);
-    
-    // Assuming empInfo[3] contains a string representing the date in "yyyy-MM-dd" format
-    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-    try {
-        Date date = dateFormat.parse(empInfo[3]); // Parse the date string
-        jDCBirthday.setDate(date); // Set the date in the JDateChooser
-    } catch (ParseException ex) {
-        ex.printStackTrace();  // Handle parsing exception
-    }
-    
-    txtAddress.setText(empInfo[4]);
-    txtPhoneNum.setText(empInfo[5]);
-    txtSSSNum.setText(empInfo[6]);
-    txtPhilhealthNum.setText(empInfo[7]);
-    txtTINNum.setText(empInfo[8]);
-    txtPagibigNum.setText(empInfo[9]);
-    cbStatus.setSelectedItem(empInfo[10]);
-    
-    // Fetch Role ID from the database based on the provided position name
-    String positionName = empInfo[11]; // Assuming this is the position name (role) in the frame
-    int roleId = getRoleIdFromDatabase(positionName);
-    
-    // Set the Role ID field to the retrieved Role ID
-    txtRoleID.setText(String.valueOf(roleId)); 
-    txtSupervisor.setText(empInfo[13]);
+    // Method for populating textfields and combo box
+    public void populateFields(String[] empInfo) {
+        txtEmployeeID.setText(empInfo[0]);
+        txtLastName.setText(empInfo[1]);
+        txtFirstName.setText(empInfo[2]);
 
-}
+        // Assuming empInfo[3] contains a string representing the date in "yyyy-MM-dd" format
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date date = dateFormat.parse(empInfo[3]); // Parse the date string
+            jDCBirthday.setDate(date); // Set the date in the JDateChooser
+        } catch (ParseException ex) {
+            ex.printStackTrace();  // Handle parsing exception
+        }
+
+        txtAddress.setText(empInfo[4]);
+        txtPhoneNum.setText(empInfo[5]);
+        txtSSSNum.setText(empInfo[6]);
+        txtPhilhealthNum.setText(empInfo[7]);
+        txtTINNum.setText(empInfo[8]);
+        txtPagibigNum.setText(empInfo[9]);
+        cbStatus.setSelectedItem(empInfo[10]);
+
+        // Fetch Role ID from the database based on the provided position name
+        String positionName = empInfo[11]; // Assuming this is the position name (role) in the frame
+        int roleId = getRoleIdFromDatabase(positionName);
+
+        // Set the Role ID field to the retrieved Role ID
+        txtRoleID.setText(String.valueOf(roleId)); 
+        txtSupervisor.setText(empInfo[13]);
+    }
 
 // Method to fetch Role ID from the database based on the role name (position)
 private int getRoleIdFromDatabase(String positionName) {
@@ -152,26 +167,22 @@ private int getRoleIdFromDatabase(String positionName) {
 }
 
 
-
-
-
-// Method for clearing textfields and combo box
-private void clearTextFields() {
-    txtEmployeeID.setText("");
-    txtLastName.setText("");
-    txtFirstName.setText("");
-    jDCBirthday.setDate(null);
-    txtAddress.setText("");
-    txtPhoneNum.setText("");
-    txtSSSNum.setText("");
-    txtPhilhealthNum.setText("");
-    txtTINNum.setText("");
-    txtPagibigNum.setText("");
-    cbStatus.setSelectedIndex(-1);
-    txtRoleID.setText("");
-    txtSupervisor.setText("");
-}
-
+    // Method for clearing textfields and combo box
+    private void clearTextFields() {
+        txtEmployeeID.setText("");
+        txtLastName.setText("");
+        txtFirstName.setText("");
+        jDCBirthday.setDate(null);
+        txtAddress.setText("");
+        txtPhoneNum.setText("");
+        txtSSSNum.setText("");
+        txtPhilhealthNum.setText("");
+        txtTINNum.setText("");
+        txtPagibigNum.setText("");
+        cbStatus.setSelectedIndex(-1);
+        txtRoleID.setText("");
+        txtSupervisor.setText("");
+    }
 
     
     // Method to validate input
@@ -660,6 +671,22 @@ private boolean validateInput() {
                     
                     // Close the current frame
                     dispose();
+                    
+                    // Update leave_credits_used table for changed first name and last name
+                    String updateLeaveCreditsSql = "UPDATE leave_credits_used SET LastName = ?, FirstName = ? WHERE EmployeeNum = ?";
+                    try (PreparedStatement updateLeaveCreditsStatement = conn.prepareStatement(updateLeaveCreditsSql)) {
+                        updateLeaveCreditsStatement.setString(1, lastName); // Last Name
+                        updateLeaveCreditsStatement.setString(2, firstName); // First Name
+                        updateLeaveCreditsStatement.setInt(3, employeeNum); // Employee ID
+
+                        // Execute the UPDATE statement for leave_credits_used table
+                        int rowsAffectedLeaveCredits = updateLeaveCreditsStatement.executeUpdate();
+                        if (rowsAffectedLeaveCredits > 0) {
+                            System.out.println("Leave credits updated successfully.");
+                        } else {
+                            System.out.println("Failed to update leave credits.");
+                        }
+                    }
                 } else {
                     JOptionPane.showMessageDialog(this, "Failed to update employee record.", "Error", JOptionPane.ERROR_MESSAGE);
                 }

@@ -240,7 +240,7 @@ public class FrmLeaveHistory extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Employee ID", "Req Date", "Leave Type", "Start Date", "End Date", "Reason", "Status", "Approver", "Approved Date"
+                "Employee ID", "Req Date", "Leave Type", "Start Date", "End Date", "Reason", "Status", "Approver", "Date Responded"
             }
         ) {
             boolean[] canEdit = new boolean [] {

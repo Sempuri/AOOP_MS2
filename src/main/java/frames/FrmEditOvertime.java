@@ -252,55 +252,55 @@ public class FrmEditOvertime extends javax.swing.JFrame {
         lblEmployeeID.setForeground(new java.awt.Color(255, 255, 255));
         lblEmployeeID.setText("Employee ID:");
         getContentPane().add(lblEmployeeID);
-        lblEmployeeID.setBounds(148, 170, 100, 30);
+        lblEmployeeID.setBounds(148, 160, 100, 40);
 
         lblEmployeeID1.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         lblEmployeeID1.setForeground(new java.awt.Color(255, 255, 255));
         lblEmployeeID1.setText("Date of Request:");
         getContentPane().add(lblEmployeeID1);
-        lblEmployeeID1.setBounds(125, 210, 120, 30);
+        lblEmployeeID1.setBounds(125, 200, 120, 40);
 
         lblLastName.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         lblLastName.setForeground(new java.awt.Color(255, 255, 255));
         lblLastName.setText("Date of OT:");
         getContentPane().add(lblLastName);
-        lblLastName.setBounds(155, 250, 90, 30);
+        lblLastName.setBounds(155, 240, 90, 40);
 
         lblFirstName.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         lblFirstName.setForeground(new java.awt.Color(255, 255, 255));
         lblFirstName.setText("Time In:");
         getContentPane().add(lblFirstName);
-        lblFirstName.setBounds(174, 290, 70, 30);
+        lblFirstName.setBounds(174, 280, 70, 40);
 
         lblBirthday.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         lblBirthday.setForeground(new java.awt.Color(255, 255, 255));
         lblBirthday.setText("Time Out:");
         getContentPane().add(lblBirthday);
-        lblBirthday.setBounds(163, 330, 80, 30);
+        lblBirthday.setBounds(163, 320, 80, 40);
 
         lblAddress1.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         lblAddress1.setForeground(new java.awt.Color(255, 255, 255));
         lblAddress1.setText("Total Worked Hours:");
         getContentPane().add(lblAddress1);
-        lblAddress1.setBounds(100, 370, 140, 30);
+        lblAddress1.setBounds(100, 360, 140, 40);
 
         lblSSS.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         lblSSS.setForeground(new java.awt.Color(255, 255, 255));
         lblSSS.setText("Status:");
         getContentPane().add(lblSSS);
-        lblSSS.setBounds(179, 410, 70, 30);
+        lblSSS.setBounds(179, 400, 70, 40);
 
         lblPhilhealth.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         lblPhilhealth.setForeground(new java.awt.Color(255, 255, 255));
         lblPhilhealth.setText("Approver:");
         getContentPane().add(lblPhilhealth);
-        lblPhilhealth.setBounds(159, 450, 80, 30);
+        lblPhilhealth.setBounds(159, 440, 80, 40);
 
         lblTIN.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         lblTIN.setForeground(new java.awt.Color(255, 255, 255));
         lblTIN.setText("Date Responded:");
         getContentPane().add(lblTIN);
-        lblTIN.setBounds(115, 490, 160, 30);
+        lblTIN.setBounds(115, 480, 160, 40);
 
         txtEmployeeID.setEditable(false);
         txtEmployeeID.setBackground(new java.awt.Color(255, 255, 255));

@@ -6,6 +6,8 @@ package frames;
 
 import classes.Employee;
 import java.awt.Dimension;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -66,6 +68,40 @@ public class FrmRequest extends javax.swing.JFrame {
         pack();  // Adjust size to the preferred size
 
         displayBgFromDatabase("FrmRequest");
+        
+        // Get today's date
+        Calendar today = Calendar.getInstance();
+        today.set(Calendar.HOUR_OF_DAY, 0);
+        today.set(Calendar.MINUTE, 0);
+        today.set(Calendar.SECOND, 0);
+        today.set(Calendar.MILLISECOND, 0);
+        
+        // Set min date for jDCStartDate to today
+        jDCStartDate.setMinSelectableDate(today.getTime());
+
+        // Set min date for jDCEndDate to tomorrow initially
+        Calendar tomorrow = (Calendar) today.clone();
+        tomorrow.add(Calendar.DAY_OF_YEAR, 1);
+        jDCEndDate.setMinSelectableDate(tomorrow.getTime());
+
+        // Add property change listener to jDCStartDate
+        jDCStartDate.getDateEditor().addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                if ("date".equals(evt.getPropertyName())) {
+                    // Get the selected start date
+                    Date selectedStartDate = jDCStartDate.getDate();
+                    if (selectedStartDate != null) {
+                        // Create a new calendar instance based on the selected start date
+                        Calendar startDate = Calendar.getInstance();
+                        startDate.setTime(selectedStartDate);
+                        // Add one day to the start date to set as min selectable date for end date
+                        startDate.add(Calendar.DAY_OF_YEAR, 1);
+                        jDCEndDate.setMinSelectableDate(startDate.getTime());
+                    }
+                }
+            }
+        });
 
         showDate();
         displayRemainingLeaveCredits();

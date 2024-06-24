@@ -317,7 +317,7 @@ public void displayTimeTrackerFromDatabase(String employeeId) {
 
             },
             new String [] {
-                "Employee ID", "Req Date", "Date of OT", "Time In", "Time Out", "Tot Worked Hrs", "Status", "Approver", "Approved Date"
+                "Employee ID", "Req Date", "Date of OT", "Time In", "Time Out", "OT Hours", "Status", "Approver", "Date Responded"
             }
         ) {
             boolean[] canEdit = new boolean [] {
